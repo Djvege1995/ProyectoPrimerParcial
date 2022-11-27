@@ -1,0 +1,3 @@
+class visitante extends personas{
+  
+}
