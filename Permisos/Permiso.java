@@ -1,9 +1,11 @@
 
 package Permisos;
+import java.util.Scanner;
 import Persona.Personas;
 import Persona.Residentes;
 import Persona.Visitante;
 public class Permiso{
+  Scanner sc=new Scanner(System.in);
   String fecha, hora, fechaIngreso,horaIngreso;
   protected Residentes residente;
   protected Visitante visitante;
@@ -18,7 +20,24 @@ public class Permiso{
     this.visitante=visitante;
     
   }
-  public void menuPermisos(){
-    System.out.println("1.Crear permiso de entrada \n2. Eliminar permiso \n3.Consultar permisos por manzana y villa");
+  public void menu(){
+    int op=0;
+    do{    
+      System.out.println("1.Crear permiso de entrada \n2. Eliminar permiso \n3.Consultar permisos por manzana y villa");
+    System.out.println("Ingrese una opcion: ");
+      
+      
+      op=sc.nextInt();
+      if (op==1){
+        
+            System.out.println("Ingrese la fecha del ingreso:")
+              
+      }else if (op==2){
+            
+      }else if (op==3){
+        
+      }
+    }while()
+
   }
 }

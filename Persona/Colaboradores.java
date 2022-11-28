@@ -1,5 +1,6 @@
 package Persona;
 import Persona.Personas;
+import java.util.ArrayList;
 public class Colaboradores extends Personas {
     private String fechainicio;
     private String fechafin;
@@ -55,15 +56,12 @@ public class Colaboradores extends Personas {
         this.puestoTrabajo = puestoTrabajo;
     }
     
-    public static void informacionResidentes(ArrayList<Residentes> lista_Residentes){
-        Scanner opcion=new Scanner(System.in);
-        System.out.println("Informacion residentes");
-        System.out.println("1. Mostrar residentes");
-        System.out.println("2. Agregar residentes");
-        System.out.println("3. Editar informacion");
-        System.out.println("4. Eliminar residente");
-        System.out.println("ingrese una opcion");
-        int op=opcion.nextInt();
+    public static void informacionEmpleado(ArrayList<Colaboradores> lista_Colaboradores){
+      System.out.println("Informacion de los empleados");
+      for(Colaboradores c:lista_Colaboradores){
+        System.out.println(c);
+      }
+
     
     
 }

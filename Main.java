@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main{
   public static void menu(){
-    Scanner sc=new Scanner(System.in);
+     Scanner sc=new Scanner(System.in);
     System.out.println("1. Urbanizacion");
     System.out.println("2. Residentes");
     System.out.println("3. Visitantes");
@@ -31,20 +31,9 @@ public class Main{
     }else if (opcion==4){
             
     }else if (opcion==5){
-      Permiso 
-      System.out.println("Ingrese una opcion: ");
-      int op;
       Permiso nuevoPermiso;
-      op=sc.nextInt();
-      if (op==1){
+      nuevoPermiso.menu();
         
-            System.out.println("Ingrese la fecha del ingreso:")
-              
-      }else if (op==2){
-            
-      }else if (op==3){
-        
-      }
       
     }else if (opcion==6){
             
@@ -55,11 +44,12 @@ public class Main{
     }else{
       
     }
-        
-        
-          
+    
         
   }
+  
+}
+   
     
 
   public static void main(String[] args) {

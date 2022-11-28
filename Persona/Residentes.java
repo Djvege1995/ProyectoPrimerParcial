@@ -43,6 +43,14 @@ public class Residentes extends Personas{
             String nuevoTelefono= opcion.nextLine();
             System.out.println("ingrese el email del residente: ");
             String nuevoEmail= opcion.nextLine();
+            System.out.println("ingrese el estado del residente: ");
+            String nTipo= opcion.nextLine();
+          if(nTipo.equals("ACTIVO")){
+              lista_Residentes.add(new Residentes(Estado.ACTIVO,nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail));
+          }
+          if(nTipo.equals("INACTIVO")){
+            lista_Residentes.add(new Residentes(Estado.INACTIVO,nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail));
+          }
                     
                     
         }
