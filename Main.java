@@ -11,6 +11,28 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main{
+  static ArrayList<Residentes> lista_Residentes=new ArrayList<>();
+  static ArrayList<Colaboradores> lista_Colaboradores=new ArrayList<>();
+  static ArrayList<Visitante> lista_visitantes=new ArrayList<>();
+  public static void inicializarSistema(){
+    
+    Residentes r1=new Residentes(Estado.ACTIVO,"0967893451","Maria Fernanda","0987563452","Mfernanda@gmail.com");
+    Residentes r2=new Residentes(Estado.INACTIVO,"0938926745","Claudia","0923765486","Clau2000@hotmail.com");
+    Residentes r3=new Residentes(Estado.ACTIVO,"0956439873","Arlett","0923211245","Arlett5@gmail.com");
+  }
+  Colaboradores c1=new Colaboradores("20/07/2019","3/06/2023",TipoEmpleado.JARDINERO,Estado.ACTIVO,"MantenimientoPlantas","0987534256","Pedro","2022945","Pedro28@hotmail.es");
+
+
+
+
+
+
+
+
+
+
+
+  
   public static void menu(){
      Scanner sc=new Scanner(System.in);
     ArrayList<Residentes> lista_Residentes;

@@ -73,14 +73,16 @@ public class Visitante extends Personas{
          System.out.println("No se encontro el visitante.");
          return;
        }
+       informacionVisitantes(visitante_modificado);
      }
+  }
 
   // Modulacion para modificar visitante  y ahorrar lineas de codigo     
   public static void informacionVisitantes(Visitante v){
     Scanner opcion=new Scanner(System.in);
        System.out.println("ingrese el nuevo nombre del visitante: ");
        String nuevoVisitante= opcion.nextLine();
-       v.setNombre(nuevoResidente);
+       v.setNombre(nuevoVisitante);
        System.out.println("ingrese el nuevo telefono del visitante: ");
        String nuevoTelefono= opcion.nextLine();
        v.setTelefono(nuevoTelefono);
