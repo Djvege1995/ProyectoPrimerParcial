@@ -1,3 +1,0 @@
-class visitante extends personas{
-  
-}

@@ -1,4 +1,5 @@
-public class Colaboradores {
+package Persona;
+public class Colaboradores extends Personas {
     private String cedula,nombre,telefono,email,puestoTrabajo,fechainicio,fechafin;
     private TipoEmpleado tipoEmpleado;
     private Estado estado;
