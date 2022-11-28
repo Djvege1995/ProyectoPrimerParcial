@@ -3,14 +3,18 @@ import Persona.Estado;
 import Persona.Personas;
 import Persona.TipoEmpleado;
 import Persona.Visitante;
+import Persona.Residentes;
 import Permisos.Permiso;
 import Permisos.EstadoPermiso;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main{
   public static void menu(){
      Scanner sc=new Scanner(System.in);
+    ArrayList<Residentes> lista_Residentes;
+    ArrayList<Visitante> Lista_visitantes
     System.out.println("1. Urbanizacion");
     System.out.println("2. Residentes");
     System.out.println("3. Visitantes");
@@ -32,7 +36,7 @@ public class Main{
             
     }else if (opcion==5){
       Permiso nuevoPermiso;
-      nuevoPermiso.menu();
+      nuevoPermiso.menu(lista_Residentes,lista_visitantes);
         
       
     }else if (opcion==6){
