@@ -1,61 +1,21 @@
 package Persona;
+import Persona.Personas;
 public class Colaboradores extends Personas {
-    private String cedula,nombre,telefono,email,puestoTrabajo,fechainicio,fechafin;
+    private String fechainicio;
+    private String fechafin;
     private TipoEmpleado tipoEmpleado;
     private Estado estado;
+    private String puestoTrabajo;
+  
+    public Colaboradores(String fechainicio,String fechafin, TipoEmpleado tipoEmpleado, Estado estado,String puestoTrabajo, String cedula, String nombre, String telefono, String email) {
+      super(cedula, nombre, telefono, email);
 
-    public Colaboradores(String cedula, String nombre, String telefono, String email, String puestoTrabajo, String fechainicio, String fechafin, TipoEmpleado tipoEmpleado, Estado estado) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.email = email;
-        this.puestoTrabajo = puestoTrabajo;
         this.fechainicio = fechainicio;
         this.fechafin = fechafin;
         this.tipoEmpleado = tipoEmpleado;
         this.estado = estado;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPuestoTrabajo() {
-        return puestoTrabajo;
-    }
-
-    public void setPuestoTrabajo(String puestoTrabajo) {
-        this.puestoTrabajo = puestoTrabajo;
-    }
-
+        this.puestoTrabajo=puestoTrabajo;
+  }
     public String getFechainicio() {
         return fechainicio;
     }
@@ -87,7 +47,23 @@ public class Colaboradores extends Personas {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+    public String getpuestoTrabajo() {
+        return puestoTrabajo;
+    }
+
+    public void setpuestoTrabajo(String puestoTrabajo) {
+        this.puestoTrabajo = puestoTrabajo;
+    }
     
+    public static void informacionResidentes(ArrayList<Residentes> lista_Residentes){
+        Scanner opcion=new Scanner(System.in);
+        System.out.println("Informacion residentes");
+        System.out.println("1. Mostrar residentes");
+        System.out.println("2. Agregar residentes");
+        System.out.println("3. Editar informacion");
+        System.out.println("4. Eliminar residente");
+        System.out.println("ingrese una opcion");
+        int op=opcion.nextInt();
     
     
 }

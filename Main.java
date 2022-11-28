@@ -1,3 +1,11 @@
+import Persona.Colaboradores;
+import Persona.Estado;
+import Persona.Personas;
+import Persona.TipoEmpleado;
+import Persona.Visitante;
+import Permisos.Permiso;
+import Permisos.EstadoPermiso;
+
 import java.util.Scanner;
 
 public class Main{
@@ -16,6 +24,36 @@ public class Main{
     int opcion= sc.nextInt();
     if (opcion==1){
             
+    }else if (opcion==2){
+            
+    }else if (opcion==3){
+            
+    }else if (opcion==4){
+            
+    }else if (opcion==5){
+      Permiso 
+      System.out.println("Ingrese una opcion: ");
+      int op;
+      Permiso nuevoPermiso;
+      op=sc.nextInt();
+      if (op==1){
+        
+            System.out.println("Ingrese la fecha del ingreso:")
+              
+      }else if (op==2){
+            
+      }else if (op==3){
+        
+      }
+      
+    }else if (opcion==6){
+            
+    }else if (opcion==7){
+            
+    }else if (opcion==8){
+            
+    }else{
+      
     }
         
         
