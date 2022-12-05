@@ -5,46 +5,45 @@ import Persona.TipoEmpleado;
 import Persona.Visitante;
 import Persona.Residentes;
 import Permisos.Permiso;
-import Permisos.EstadoPermiso;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
 
+public class Main {
 
-public class Main{
   //Creacion de lista 
   static ArrayList<Residentes> lista_Residentes=new ArrayList<>();
-  static ArrayList<Colaboradores> lista_Colaboradores=new ArrayList<>();
+  static ArrayList<Colaboradores> lista_colaboradores=new ArrayList<>();
   static ArrayList<Visitante> lista_Visitante=new ArrayList<>();
+  static ArrayList<Permiso> lista_permiso=new ArrayList<>();
+  static ArrayList<Urbanizacion> lista_urbanizacion=new ArrayList<>();
+  static ArrayList<Permiso> lista_Permisos=new ArrayList<>();
+  static ArrayList<Personas> lista_Persona = new ArrayList<>();
+  static ArrayList<Revision> lista_Actual = new ArrayList<>();
+
 
   
   public static void inicializarSistema(){
     // residentes
-    Residentes r1=new Residentes(Estado.ACTIVO,"0967893451","Maria Fernanda","0987563452","Mfernanda@gmail.com");
-    Residentes r2=new Residentes(Estado.INACTIVO,"0938926745","Claudia","0923765486","Clau2000@hotmail.com");
-    Residentes r3=new Residentes(Estado.ACTIVO,"0956439873","Arlett","0923211245","Arlett5@gmail.com");
-  
-  
-  //colaboradores
-  Colaboradores c1=new Colaboradores("20/07/2019","3/06/2023",TipoEmpleado.JARDINERO,Estado.ACTIVO,"MantenimientoPlantas","0987534256","Pedro","2022945","Pedro28@hotmail.es");
-  Colaboradores c2=new
-  Colaboradores("4/09/2010","23/09/2018",TipoEmpleado.ADMINISTRADOR,Estado.INACTIVO,"Supervisor","0984564434","Camila","09878765","Cami34@hotmail.es");
-  Colaboradores c3=new Colaboradores("20/07/2020","3/06/2025",TipoEmpleado.GUARDIA,Estado.ACTIVO,"Guardia de seguridad","0969986787","Fernando","095678345","ferhernandez@outlook.com");
-    Colaboradores c4=new Colaboradores("25/01/2016","12/12/2024",TipoEmpleado.ADMINISTRADOR,Estado.ACTIVO,"contable","0969923456","Ivon","0945223452","IVON45@hotmail.es");
+    Residentes r1=new Residentes("0956778807","Maria Fernanda","0987563452","Mfernanda@gmail.com","206","8",Estado.ACTIVO);
+    //colaboradores
+    Colaboradores c1=new Colaboradores("20/07/2019","3/06/2023",TipoEmpleado.GUARDIA,Estado.ACTIVO,"MantenimientoPlantas","0987534256","Pedro","2022945","Pedro28@hotmail.es");
 
-
-  //visitantes
+    Colaboradores c2=new Colaboradores("20/07/2020","3/06/2025",TipoEmpleado.GUARDIA,Estado.ACTIVO,"Guardia de seguridad","0969986787","Fernando","095678345","ferhernandez@outlook.com");
+    
+    //visitantes
   
-  Visitante v1=new Visitante("0956789305","Jefferson","0987867566","jeff22@hotmail.com","No pertenece a empresa","Sin sancion");
+    Visitante v1=new Visitante("0956789305","Jefferson","0987867566","jeff22@hotmail.com","No pertenece a empresa","Sin sancion");
     Visitante v2=new Visitante("0934567856","Wilson","0945687221","Wcsanchez@hotmail.com","Doltrex","Sin sancion");
     //añadimos los objetos a la lista que pertenesca.
     
     lista_Residentes.add(r1);
     
 
-    lista_Colaboradores.add(c1);
-    lista_Colaboradores.add(c2);
+    lista_colaboradores.add(c1);
+    lista_colaboradores.add(c2);
 
 
     lista_Visitante.add(v1);
@@ -52,6 +51,10 @@ public class Main{
 
 
   }
+  
+    public static ArrayList<Personas> getLista_persona(){
+    return lista_Persona;
+    }
 
 
 
@@ -76,8 +79,8 @@ public class Main{
       System.out.println("Ingrese una opcion: ");
       opcion= opcion_menu.nextInt();
       if (opcion==1){
-        
-        
+        Urbanizacion.informacionUrbanicacion(lista_urbanizacion, lista_colaboradores);
+
       }else if (opcion==2){
         Residentes.informacionResidentes(lista_Residentes);
         
@@ -86,12 +89,13 @@ public class Main{
         Visitante.informacionVisitantes(lista_Visitante);
         
       }else if (opcion==4){
-        Colaboradores.informacionEmpleado(lista_Colaboradores);
+        Colaboradores.informacionEmpleado(lista_colaboradores);
         
       }else if (opcion==5){
-        Permiso nuevoPermiso;
-        nuevoPermiso.menu(lista_Residentes,lista_Visitante);
+          Permiso.modificarPermiso(lista_Permisos,lista_Visitante,lista_Residentes);
+
       }else if (opcion==6){
+        verificarvisitante(lista_Visitante,lista_Permisos, lista_Actual);
             
       }else if (opcion==7){
             
@@ -112,3 +116,4 @@ public class Main{
         
   }
 }
+    

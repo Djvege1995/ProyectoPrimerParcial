@@ -1,8 +1,15 @@
 package Persona;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Persona.Residentes;
+/**
+ *
+ * @author apple
+ */
+
+    
 public class Visitante extends Personas{
-  String historial, empresa;
+  String  empresa, historial;
   public Visitante (String cedula, String nombre, String telefono, String email,String empresa,String historial){
     super(cedula, nombre, telefono, email);
     this.empresa=empresa;
@@ -29,12 +36,11 @@ public class Visitante extends Personas{
      System.out.println("1.Agregar visitante");
      System.out.println("2.Editar visitante");
      int op=opcion.nextInt();
-     for(Visitante v:lista_Visitante){
-       System.out.println(v.getCedula());   
-      }
+
     
      if(op==1){
-      System.out.println("Ingrese la informacion.- ");
+      System.out.println("----Ingrese la informacion---- ");
+      opcion.nextLine();
       System.out.println("ingrese la cedula del visitante: ");
       String nuevaCedula = opcion.nextLine();
       System.out.println("ingrese el nombre del visitante: ");
@@ -43,28 +49,40 @@ public class Visitante extends Personas{
       String nuevoTelefono= opcion.nextLine();
       System.out.println("ingrese el email del visitante: ");
       String nuevoEmail= opcion.nextLine();
-      System.out.println("¿Es un repartidor?");
+      System.out.println("¿Es un repartidor SI-NO?");
       String repartidor=opcion.nextLine();
+      System.out.println("ingrese el historial del visitante: ");
+      String history= opcion.nextLine();
+      
+      
        if(repartidor.equals("Si")){
          System.out.println("Ingrese el nombre de la empresa donde trabaja");
          String nomEmpresa=opcion.nextLine();
-        
-       }else(repartidor.equals("No")){
-         System.out.println("No es repartidor");
+         lista_Visitante.add(new Visitante(nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail,nomEmpresa,history));
        }
-      System.out.println("ingrese el historial del visitante: ");
-      String historial= opcion.nextLine();
+       else{
+         System.out.println(" ");
+         String vac=opcion.nextLine();
+         lista_Visitante.add(new Visitante(nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail,vac, history));
+
+       }
+         System.out.println(" ");
+       }
+  
+     
      if(op==2){
-       System.out.println("Editar");
+       System.out.println("----Editar informacion----");
+       opcion.nextLine();
+       
        for(Visitante v:lista_Visitante){
          System.out.println(v.getCedula());
        }
        System.out.println("Ingrese la cedula del visitante: ");
-       String visitanteteEscogido=opcion.nextLine();
+       String visitanteEscogido=opcion.nextLine();
        boolean confirmacion=false;
-       Residentes visitante_modificado=null;
-       for(Visitante r:lista_Visitante){
-         if(r.getCedula().equals(visitanteEscogido)){
+       Visitante visitante_modificado=null;
+       for(Visitante v:lista_Visitante){
+         if(v.getCedula().equals(visitanteEscogido)){
            confirmacion=true;
            visitante_modificado=v;
          }

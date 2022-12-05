@@ -1,229 +1,263 @@
 package Permisos;
+import Persona.Visitante;
+import Persona.Residentes;
+import Persona.Personas;
+import Persona.TipoEmpleado;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
 
-import Persona.Residentes;
-import Persona.Visitante;
-import Persona.Colaboradores;
+/**
+ *
+ * @author apple
+ */
 
 
-
-
-public class Permiso{
-  String fecha,mz, hora, fechaIngreso,horaIngreso,ciR,ciV,codigo,observacion,sancion,nombreEmpresa;
-    protected Residentes residente;
-    protected Visitante visitante;
-    protected Colaboradores colaborador;
-    int duracion,villa;
-    protected EstadoPermiso estado;
-  
-/*constructor de permisos*/
-  public Permiso(String fecha,String hora,String fechaIngreso,String horaIngreso,String observacion,Residentes residente,Visitante visitante,Colaboradores colaborador,String codigo,EstadoPermiso estado,int duracion,String mz,int villa){
-    this.fecha=fecha;
-    this.hora=hora;
-    this.fechaIngreso=fechaIngreso;
-    this.horaIngreso=horaIngreso;
-    this.observacion=observacion;
-    this.residente=residente;
-    this.visitante=visitante;
-    this.colaborador=colaborador;
-    this.codigo=codigo;
-    this.estado=estado;
-    this.duracion=duracion;
-    this.villa=villa;
-    this.mz=mz;
+public class Permiso {
+ 
+    private String fecha;
+    private String hora;
+    public String residente;
+    public String visitantePermitido;
+    private String fechaIngreso;
+    private String  horaIngreso;
+    private int duracion;
+    private int codigoVisitante;
+    private EstadoPermiso resultado;
     
-  }
-  /*getters y setters*/
-  public void setMz(String mz){
-    this.mz=mz;
-  }
-  public int getVilla(){
-      return villa;
-  }
-  public String getMz(){
-      return mz;
-  }
-  public String observacion(){
-    return observacion;
-  }
-  public void setVilla(int villa){
-      this.villa=villa;
-  }
+    public static int conCodigoVisitante = 0;
 
-  public EstadoPermiso getEstado(){
-    return estado;
-  }
-  public String getFecha(){
-    return fecha;
-  }
-  public String getHora(){
-    return hora;
-  }
-   public String getFechaIngreso(){
-    return fechaIngreso;
-  }
-  public String getHoraIngreso(){
-    return horaIngreso;
-  }
-  public Residentes getResidente(){
-    return residente;
-  }
-  public Visitante getVisitante(){
-    return visitante;
-  }
-  public Colaboradores getColaborador(){
-    return colaborador;
-  }
-  public String getCode(){
-    return codigo;
-  }
-  public int getDuracionVisita(){
-    return duracion;
-  }
-  public void setFecha(String fecha){
-    this.fecha=fecha;
-  }
-  public void setHora(String hora){
-    this.hora=hora;
-  }
-   public void setFechaIngreso(String fechaIngreso){
-    this.fechaIngreso=fechaIngreso;
-  }
-  public void setHoraIngreso(String horaIngreso ){
-    this.horaIngreso=horaIngreso;
-  }
-  public void setObservacion(String observacion){
-    this.observacion=observacion;
-  }
-  public void setResidente(Residentes residente){
-    this.residente=residente;
-  }
-  public void setVisitante(Visitante visitante){
-    this.visitante=visitante;
-  }
-  public void setcolaborador(Colaboradores colaborador){
-    this.colaborador=colaborador;
-  }
-  public void setCode(String codigo){
-    this.codigo=codigo;
-  }
-  public void setEstado(EstadoPermiso estado){
-    this.estado=estado;
-  }
-  public void setDuracionVisita(int duracion){
-    this.duracion=duracion;
-  }
-  @Override
-  public String toString(){/*Definimos el toString para nuestra clase*/
-    return "Nombre del residente:"+residente.getNombre()+"Nombre del visitante:"+visitante.getNombre()+"Cédula del visitante:"+visitante.getCedula()+"Código del permiso:"+codigo+"Fecha de creación del permiso:"+fecha+"Hora de creación del permiso"+hora+"Fecha de la visita:"+fechaIngreso+"Hora de la visita"+horaIngreso;
-  }
-  /* Menu de permisos*/
-  public static void modificarPermiso(ArrayList<Permiso>lista_permisos, ArrayList<Residentes>lista_residentes,Colaboradores colaborador){
-    Scanner opcion =new Scanner(System.in);
-      System.out.println("1. Agregar permiso");
-      System.out.println("2. Eliminar permiso");
-      System.out.println("3. Consultar permiso");
+    public Permiso(String fecha, String hora, String residente, String visitantePermitido, String fechaIngreso, String horaIngreso, int duracion, int codigoVisitante,EstadoPermiso resultado) {
+        this.fecha = fecha;
+        this.hora = hora;
+        this.residente = residente;
+        this.visitantePermitido = visitantePermitido;
+        this.fechaIngreso = fechaIngreso;
+        this.horaIngreso = horaIngreso;
+        this.duracion = duracion;
+        this.codigoVisitante = conCodigoVisitante++ ;
+        this.resultado=resultado;
+    }
+
+    public EstadoPermiso getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(EstadoPermiso resultado) {
+        this.resultado = resultado;
+    }
+    
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getResidente() {
+        return residente;
+    }
+
+    public void setResidente(String residente) {
+        this.residente = residente;
+    }
+
+    public String getVisitantePermitido() {
+        return visitantePermitido;
+    }
+
+    public void setVisitantePermitido(String visitantePermitido) {
+        this.visitantePermitido = visitantePermitido;
+    }
+
+
+
+
+
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public String getHoraIngreso() {
+        return horaIngreso;
+    }
+
+    public void setHoraIngreso(String  horaIngreso) {
+        this.horaIngreso = horaIngreso;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public int getCodigoVisitante() {
+        return codigoVisitante;
+    }
+
+    public void setCodigoVisitante(int codigoVisitante) {
+        this.codigoVisitante = codigoVisitante;
+    }
+
+    public static int getConCodigoVisitante() {
+        return conCodigoVisitante;
+    }
+
+    public static void setConCodigoVisitante(int conCodigoVisitante) {
+        Permiso.conCodigoVisitante = conCodigoVisitante;
+    }
+
+    /* Menu de permisos*/
+    public static void modificarPermiso(ArrayList<Permiso>lista_Permisos, ArrayList<Visitante>lista_Visitante,ArrayList<Residentes>lista_Residentes){
+        Scanner opcion =new Scanner(System.in);
+        System.out.println("1. Agregar permiso");
+        System.out.println("2. Eliminar permiso");
+        System.out.println("3. Consultar permiso");
         System.out.println("4. Salir");
-      System.out.println("Cual es su opcion: ");
-      int op=opcion.nextInt();
-      opcion.nextLine();
-          //Agregando un permiso   
-    /*Se registra la fecha y hora de creación del permiso, se registrará al residente que aprueba y
-crea el permiso, persona(visitante) que va a ingresar, fecha que va a ingresar, hora que va a
-ingresar (dar un rango de 15 minutos antes y después), duración aproximada de visita,
-creación de código único.*/ 
-      if(op==1){
-        System.out.println("Ingrese la fecha de creación de permiso:");
-        String nuevaFecha=opcion.nextLine();
-        System.out.println("Ingrese la hora de creación del permiso:");
-        String nuevaHora=opcion.nextLine();
-        System.out.println("Ingrese la fecha de la visita:");
-        String fechaVisita=opcion.nextLine();
-        System.out.println("Ingrese la hora de la visita:");
-        String horaVisita=opcion.nextLine();
-        System.out.println("Ingrese nombre del residente anfitrión: ");
-        String nombreResidente=opcion.nextLine();
-        System.out.println("Ingrese nombre del visitante: ");
-        String nombreVisita=opcion.nextLine();
-        System.out.println("Ingrese la cédula del visitante:");
-        String nuevaCiVisitante=opcion.nextLine();
-        System.out.println("Ingrese el número de teléfono del visitante:");
-        String telefonoVisita=opcion.nextLine();
-        System.out.println("Ingrese el correo electrónico del visitante:");
-        String nuevoCorreo=opcion.nextLine();
-        System.out.println("¿Es repartidor[true/false]:");
-        boolean yesOrNo=opcion.nextBoolean();
-        String nombreEmpresa=new String();
-        if(yesOrNo==false){
-          nombreEmpresa="No es repartidor";
-        }
-        while(yesOrNo==true){
-          System.out.println("Ingrese el nombre de la empresa:");
-          nombreEmpresa=opcion.nextLine();
-          
-        }  
-        System.out.println("¿Tiene sanciones[true/false]:");
-        boolean siOrNo=opcion.nextBoolean();
-        String sancion;
-        if(siOrNo==true){
-          
-          sancion="Tiene sanción";
-          
-        }else{
-          sancion="No tiene sanción";
-        }  
-        Visitante nuevaVisita=new Visitante(nuevaCiVisitante,nombreVisita,telefonoVisita,nuevoCorreo,nombreEmpresa,sancion);/*creacion de nuevo visitante en el registro*Visitante (String cedula, String nombre, String telefono, String email,String empresa,String historial)*/
-        System.out.println("Ingrese el tiempo que estará la visita:");
-        int tiempoDeEstadia=opcion.nextInt();
-        String nuevoCodigo=nombreResidente+nuevaCiVisitante;
-        String obs="No hay observación por el momento";
-        
-        
-        for(Residentes r:lista_residentes){
-          do{
-            /*Permiso(String fecha,String hora,String fechaIngreso,String horaIngreso,Residentes residente,Visitante visitante,String codigo,EstadoPermiso estado,int duracion,String mz,int villa){*/
-            Permiso nuevoPermiso=new Permiso(nuevaFecha,nuevaHora,fechaVisita,horaVisita,obs,r,nuevaVisita,colaborador,nuevoCodigo,EstadoPermiso.ACTIVO,tiempoDeEstadia,r.getMz(),r.getVilla());/*creación del nuevo elemento de la lista de permisos*/
+        System.out.println("Cual es su opcion: ");
+        int op=opcion.nextInt();
+        if( op==1){
+          /*Agregar un permiso*/
+
+            crearPermiso(lista_Permisos,lista_Visitante);
             
-          lista_permisos.add(nuevoPermiso);
-          }while(r.getNombre().equals(nombreResidente));
-            
-          
         }
-        
-        
+        if(op==2){
           /*Eliminar un permiso*/
+            System.out.println("Ingrese cedula del visitante: ");
+            String cedula_ingresa=opcion.nextLine();
+            opcion.nextLine();
+            eliminarPermiso(lista_Permisos,cedula_ingresa);
+          
+           
+          
+
+        }
+        if(op==3){
+            /*Consultar un permiso*/
+            System.out.println("Ingrese mz del residente: ");
+          opcion.nextLine();
+            String mz_ingresa=opcion.nextLine();
+            System.out.println("Ingrese villa del residente: ");
+            String villa_ingresa=opcion.nextLine();
+          consultarPermiso(lista_Permisos,lista_Residentes,mz_ingresa,villa_ingresa);
+
+            
+            
+        }
+        else {
+          return;
+
+        }
+      
+    }
+    
+    
         
-      }else if(op==2){
-        System.out.println("Que permiso desea eliminar ");
-          for(Permiso p:lista_permisos){
-              if(p.getEstado().equals(EstadoPermiso.ACTIVO)){
-                String code=p.getCode();
-              System.out.println("Resgistro:"+code);
-              }
-          }
-          System.out.println("ingreselo: ");
-          String permisoSeleccionado=opcion.nextLine();
-          for(Permiso pp:lista_permisos){
-            if(pp.getCode().equals(permisoSeleccionado)){
-              pp.setEstado(EstadoPermiso.INACTIVO);
+    public static void crearPermiso(ArrayList<Permiso> lista_Permisos,ArrayList<Visitante> lista_Visitante) {
+            Scanner opcion =new Scanner(System.in);
+            System.out.println("Ingrese la fecha (DD/MM/AAAA): ");
+            String fechaPermiso=opcion.nextLine();
+      
+            System.out.println("Ingrese la hora (Hora/Minutos): ");
+            String horaPermiso=opcion.nextLine();
+
+      
+            System.out.println("Ingrese cedula del residente: ");
+            String cedulaResidente=opcion.nextLine();
+             opcion.nextLine();
+            
+            System.out.println("Ingrese cedula del visitante: ");
+            String visitantepermitido = opcion.nextLine();
+      
+            System.out.println("Ingrese la fecha de ingreso  (AAAA-MM-DD): ");
+            String fechaIngreso1=opcion.nextLine();
+            LocalDate fechaAc=LocalDate.now();
+            String fechaActual= String.valueOf (fechaAc);
+            for(Visitante v:lista_Visitante){
+                if(v.getCedula().equals(visitantepermitido)){
+                    if(fechaIngreso1.equals(fechaActual)&&  !v.getHistorial().equals(" ")){
+                        System.out.println("Fecha ingresada correcta");
+                        System.out.println("No tiene sancion");
+                    }else{
+                        System.out.println("No puede ingresar");
+                    }
+                }
             }
-          }
-      }
-      else{/*Buscar permisos por manzana y villa*/
-        System.out.println("Ingrese la manzana:");
-        String manzana=opcion.nextLine();
-        System.out.println("Ingrese la villa:");
-        int casa=opcion.nextInt();
-        for(Permiso permiso:lista_permisos){
-          if(permiso.getMz().equals(manzana)&&permiso.getVilla()==(casa)){
-            permiso.toString();/*Imprime la información del permiso buscado*/
-          }else{
-            System.out.println("No se encuentra el permiso buscado.");
-          }
+            System.out.println("Ingrese la hora de ingreso (HH:MM):  ");
+            String horaIngreso1=opcion.nextLine();
+            System.out.println("Ingrese duracion de la visita ");
+            int duracion1 =opcion.nextInt();
+            
+            lista_Permisos.add(new Permiso(fechaPermiso,horaPermiso,cedulaResidente,visitantepermitido,fechaIngreso1,horaIngreso1,duracion1,getConCodigoVisitante(),EstadoPermiso.ACTIVO));
+   }
+ public static void eliminarPermiso(ArrayList<Permiso> lista_Permisos, String cedula_ingresa){
+        Scanner opcion = new Scanner(System.in);
+        ArrayList<Permiso> Permisos_Visita= new ArrayList<>();
+        for(Permiso pa: lista_Permisos){
+          if(pa.getVisitantePermitido().equals(cedula_ingresa)){
+              System.out.println((Permisos_Visita.size() + 1) + ". " + pa.toString());
+              Permisos_Visita.add(pa);
+              
+           }
+        }
+        System.out.println("Ingrese el numero del permiso que desea eliminar: ");
+        int numero = opcion.nextInt();
+        opcion.nextLine();
+        while(numero > lista_Permisos.size() || numero<0){
+            System.out.println("Numero ingresado es invalido");
+            System.out.println("Ingrese el numero del permiso que desea eliminar: ");
+            numero = opcion.nextInt(); 
+            opcion.nextLine();
+            
         }
         
+        Permiso permiso1 = lista_Permisos.get(numero-1);
+        if(permiso1.getResultado() == EstadoPermiso.ACTIVO){
+            permiso1.setResultado(EstadoPermiso.INACTIVO);
+       }
+       
+  
+    }
+    public static void consultarPermiso(ArrayList<Permiso> lista_Permisos,ArrayList<Residentes> lista_Residentes,String mz_ingresa, String villa_ingresa){
+      int cuenta = 0;
+      for(Permiso permisoAutorizado: lista_Permisos){
+         for(Residentes r:lista_Residentes){
+              if(permisoAutorizado.getResidente().equals(r.getCedula())){
+                  if(r.getMz().equals(mz_ingresa)&& r.getVilla().equals(villa_ingresa)){
+                      cuenta++;
+                      System.out.println(permisoAutorizado);
+                    }
+               }
+           }
+      }
+      if(cuenta == 0){
+          System.out.println("No se encontraron permisos con la mz y villa indicada.");
       }
   }
-}
 
+
+
+
+
+
+  
+  
+}
+    

@@ -1,6 +1,10 @@
 package Persona;
 import Persona.Personas;
 import java.util.ArrayList;
+/**
+ *
+ * @author alber
+ */
 public class Colaboradores extends Personas {
     private String fechainicio;
     private String fechafin;
@@ -8,7 +12,7 @@ public class Colaboradores extends Personas {
     private Estado estado;
     private String puestoTrabajo;
   
-    public Colaboradores(String fechainicio,String fechafin, TipoEmpleado tipoEmpleado, Estado estado,String puestoTrabajo, String cedula, String nombre, String telefono, String email) {
+    public Colaboradores(String fechainicio,String fechafin, TipoEmpleado tipoEmpleado, Estado estado,String puestoTrabajo, String cedula, String nombre, String telefono, String email){
       super(cedula, nombre, telefono, email);
 
         this.fechainicio = fechainicio;
@@ -16,7 +20,8 @@ public class Colaboradores extends Personas {
         this.tipoEmpleado = tipoEmpleado;
         this.estado = estado;
         this.puestoTrabajo=puestoTrabajo;
-  }
+    }
+    
     public String getFechainicio() {
         return fechainicio;
     }
@@ -61,7 +66,15 @@ public class Colaboradores extends Personas {
       for(Colaboradores c:lista_Colaboradores){
         System.out.println(c);
       }
+      
+    }
+    @Override
+    public String toString() {
+       System.out.println("----------Colaborador--------------");
+        return "fecha inicio  " + fechainicio +"\nfecha fin " + fechafin + "\ntipoEmpleado " + tipoEmpleado + "\nestado " + estado + "\npuestoTrabajo " + puestoTrabajo;
 
+      
     
-    
+    }
+      
 }
