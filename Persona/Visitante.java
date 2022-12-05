@@ -23,15 +23,16 @@ public class Visitante extends Personas{
     this.empresa=empresa;
   }
   //creacion de menu para visitantes.
-  public static void informacionVisitantes(ArrayList<Visitante> lista_Visitantes){
+  public static void informacionVisitantes(ArrayList<Visitante> lista_Visitante){
      Scanner opcion=new Scanner(System.in);
      System.out.println("Informacion visitante");
      System.out.println("1.Agregar visitante");
      System.out.println("2.Editar visitante");
-     int op=opcion.nextLine();
-     for(Visitante v:lista_Visitantes){
+     int op=opcion.nextInt();
+     for(Visitante v:lista_Visitante){
        System.out.println(v.getCedula());   
       }
+    
      if(op==1){
       System.out.println("Ingrese la informacion.- ");
       System.out.println("ingrese la cedula del visitante: ");
@@ -55,14 +56,14 @@ public class Visitante extends Personas{
       String historial= opcion.nextLine();
      if(op==2){
        System.out.println("Editar");
-       for(Visitante v:lista_Visitantes){
+       for(Visitante v:lista_Visitante){
          System.out.println(v.getCedula());
        }
        System.out.println("Ingrese la cedula del visitante: ");
        String visitanteteEscogido=opcion.nextLine();
        boolean confirmacion=false;
        Residentes visitante_modificado=null;
-       for(Visitante r:lista_Visitantes){
+       for(Visitante r:lista_Visitante){
          if(r.getCedula().equals(visitanteEscogido)){
            confirmacion=true;
            visitante_modificado=v;

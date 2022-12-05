@@ -41,13 +41,11 @@ public class Main{
     //añadimos los objetos a la lista que pertenesca.
     
     lista_Residentes.add(r1);
-    lista_Residentes.add(r2);
-    lista_Residentes.add(r3);
+    
 
     lista_Colaboradores.add(c1);
     lista_Colaboradores.add(c2);
-    lista_Colaboradores.add(c3);
-    lista_Colaboradores.add(c4);
+
 
     lista_Visitante.add(v1);
     lista_Visitante.add(v2);
@@ -79,21 +77,24 @@ public class Main{
       opcion= opcion_menu.nextInt();
       if (opcion==1){
         
+        
       }else if (opcion==2){
-
+        Residentes.informacionResidentes(lista_Residentes);
+        
+        
       }else if (opcion==3){
+        Visitante.informacionVisitantes(lista_Visitante);
         
       }else if (opcion==4){
+        Colaboradores.informacionEmpleado(lista_Colaboradores);
         
       }else if (opcion==5){
         Permiso nuevoPermiso;
-        nuevoPermiso.menu(lista_Residentes,lista_visitantes);
+        nuevoPermiso.menu(lista_Residentes,lista_Visitante);
       }else if (opcion==6){
             
       }else if (opcion==7){
             
-      }else if (opcion==8){
-        
       }
     }while(opcion!=8);
       

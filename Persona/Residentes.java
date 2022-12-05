@@ -2,13 +2,38 @@ package Persona;
 import Persona.Personas;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Permisos.Permiso;
 
 public class Residentes extends Personas{
     private Estado estado;
+    public String mz;
+    public int villa;
+    public ArrayList<Permiso> lista_permisos;
 
-    public Residentes(Estado estado, String cédula, String nombre, String teléfono, String email) {
-        super(cédula, nombre, teléfono, email);
+    public Residentes(Estado estado, String cedula, String nombre, String telefono, String email,String mz,int villa, ArrayList<Permiso> lista_permisos) {
+        super(cedula, nombre, telefono, email);
         this.estado = estado;
+        this.lista_permisos=lista_permisos;
+        this.mz=mz;
+        this.villa=villa;
+    }
+    public ArrayList<Permiso> getListaPermisos(){
+      return lista_permisos;
+    }
+    public void setListaPermisos(ArrayList<Permiso> lista_permisos){
+      this.lista_permisos=lista_permisos;
+    }
+    public String getMz(){
+      return mz;
+    }
+    public void setMz(String mz){
+      this.mz=mz;
+    }
+    public int getVilla(){
+      return villa;
+    }
+    public void setVilla(int villa){
+      this.villa=villa;
     }
 
     public Estado getEstado() {
@@ -41,15 +66,20 @@ public class Residentes extends Personas{
             String nuevoNombre= opcion.nextLine();
             System.out.println("ingrese el telefono del residente: ");
             String nuevoTelefono= opcion.nextLine();
+            System.out.println("Ingrese la manzana del residente: ");
+            String nuevaMz=opcion.nextLine();
+            System.out.println("Ingrese la villa del residente: ");
+            int nuevaVilla=opcion.nextInt();
             System.out.println("ingrese el email del residente: ");
             String nuevoEmail= opcion.nextLine();
             System.out.println("ingrese el estado del residente: ");
             String nTipo= opcion.nextLine();
+            ArrayList <Permiso> lista_permisos=new ArrayList<Permiso>();
           if(nTipo.equals("ACTIVO")){
-              lista_Residentes.add(new Residentes(Estado.ACTIVO,nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail));
+              lista_Residentes.add(new Residentes(Estado.ACTIVO,nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail,nuevaMz,nuevaVilla,lista_permisos));
           }
           if(nTipo.equals("INACTIVO")){
-            lista_Residentes.add(new Residentes(Estado.INACTIVO,nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail));
+            lista_Residentes.add(new Residentes(Estado.INACTIVO,nuevaCedula,nuevoNombre,nuevoTelefono,nuevoEmail,,nuevaMz,nuevaVilla,lista_permisos));
           }
                     
                     

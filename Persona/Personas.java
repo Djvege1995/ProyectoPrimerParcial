@@ -1,7 +1,7 @@
 package Persona;
 
 public class Personas {
-    private String cedula, nombre, telefono, email;
+    public String cedula, nombre, telefono, email;
 
     public Personas(String cedula, String nombre, String telefono, String email) {
         this.cedula = cedula;
