@@ -58,7 +58,7 @@ public class Revision {
         this.permisoactual = permisoactual;
     }
 
- 
+   
 
     
     public static void verificarvisitante(ArrayList<Visitante> lista_Visitante,ArrayList<Permiso> lista_Permisos,ArrayList<Revision> lista_Actual){
